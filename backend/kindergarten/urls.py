@@ -1,8 +1,9 @@
 from django.urls import path, include
 from rest_framework import routers
-from kindergarten.views import ListUsers
+from kindergarten.views import ClassViewSet, ListUsers
 
 router = routers.DefaultRouter()
+router.register(r'class', ClassViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

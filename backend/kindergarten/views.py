@@ -2,12 +2,20 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions, viewsets
 from django.contrib.auth.models import User
-from kindergarten.serializers import ClassSerializer
-from kindergarten.models import Class
+from kindergarten.serializers import ClassSerializer, ChildSerializer, TeacherSerializer
+from kindergarten.models import Class, Child, Teacher
 
 class ClassViewSet(viewsets.ModelViewSet):
     queryset = Class.objects.all()
     serializer_class = ClassSerializer
+
+class ChildViewSet(viewsets.ModelViewSet):
+    queryset = Child.objects.all()
+    serializer_class = ChildSerializer
+
+class TeacherViewSet(viewsets.ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializer
 
 class ListUsers(APIView):
     """
